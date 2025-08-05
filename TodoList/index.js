@@ -8,7 +8,7 @@ let totalCount = 0;
 
 addButton.addEventListener('click', function (e) {
   if (input.value.length == 0) {
-    window.alert("Input notYou cannot leave the field blank valid")
+    window.alert("You cannot leave the field blank valid")
   } else {
   
   e.preventDefault();
