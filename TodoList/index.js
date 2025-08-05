@@ -7,6 +7,10 @@ let completedCount = 0;
 let totalCount = 0;
 
 addButton.addEventListener('click', function (e) {
+  if (input.value.length == 0) {
+    window.alert("Input notYou cannot leave the field blank valid")
+  } else {
+  
   e.preventDefault();
   const paragraph1 = document.createElement('div');
   const paragraph2 = document.createElement('div');
@@ -52,7 +56,7 @@ addButton.addEventListener('click', function (e) {
     }
     updateCountDisplay();
   });
-});
+}});
 
 function updateCountDisplay() {
   countDisplay.textContent = `${completedCount} of ${totalCount} tasks done`;
