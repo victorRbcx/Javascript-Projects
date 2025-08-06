@@ -11,52 +11,52 @@ addButton.addEventListener('click', function (e) {
     window.alert("You cannot leave the field blank")
   } else {
   
-  e.preventDefault();
-  const paragraph1 = document.createElement('div');
-  const paragraph2 = document.createElement('div');
-  const cont = document.createElement('div');
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  paragraph1.appendChild(checkbox);
-  const text = document.createTextNode(input.value);
-  paragraph1.appendChild(text);
-  const editButton = document.createElement('button');
-  editButton.textContent = '✒️';
-  paragraph2.appendChild(editButton);
-  const deleteButton = document.createElement('button');
-  deleteButton.textContent = '❎';
-  paragraph2.appendChild(deleteButton);
-  cont.appendChild(paragraph1);
-  cont.appendChild(paragraph2);
-  todoContainer.appendChild(cont);
-  input.value = '';
-  totalCount++;
-  updateCountDisplay();
-  checkbox.addEventListener('click', function () {
-    if (checkbox.checked) {
-      cont.style.textDecoration = 'line-through';
-      completedCount++;
-    } else {
-      cont.style.textDecoration = 'none';
-      completedCount--;
-    }
+    e.preventDefault();
+    const paragraph1 = document.createElement('div');
+    const paragraph2 = document.createElement('div');
+    const cont = document.createElement('div');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    paragraph1.appendChild(checkbox);
+    const text = document.createTextNode(input.value);
+    paragraph1.appendChild(text);
+    const editButton = document.createElement('button');
+    editButton.textContent = '✒️';
+    paragraph2.appendChild(editButton);
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = '❎';
+    paragraph2.appendChild(deleteButton);
+    cont.appendChild(paragraph1);
+    cont.appendChild(paragraph2);
+    todoContainer.appendChild(cont);
+    input.value = '';
+    totalCount++;
     updateCountDisplay();
-  });
-  editButton.addEventListener('click', function () {
-    const editText = prompt('Edit task:', text.textContent);
-    if (editText !== null) {
-      text.textContent = editText;
-    }
-  });
-  deleteButton.addEventListener('click', function () {
-    todoContainer.removeChild(cont);
-    totalCount--;
-    if (checkbox.checked) {
-      completedCount--;
-    }
-    updateCountDisplay();
-  });
-}});
+    checkbox.addEventListener('click', function () {
+      if (checkbox.checked) {
+        cont.style.textDecoration = 'line-through';
+        completedCount++;
+      } else {
+        cont.style.textDecoration = 'none';
+        completedCount--;
+      }
+      updateCountDisplay();
+    });
+    editButton.addEventListener('click', function () {
+      const editText = prompt('Edit task:', text.textContent);
+      if (editText !== null) {
+        text.textContent = editText;
+      }
+    });
+    deleteButton.addEventListener('click', function () {
+      todoContainer.removeChild(cont);
+      totalCount--;
+      if (checkbox.checked) {
+        completedCount--;
+      }
+      updateCountDisplay();
+    });
+  }});
 
 function updateCountDisplay() {
   countDisplay.textContent = `${completedCount} of ${totalCount} tasks done`;
